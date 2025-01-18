@@ -1,17 +1,48 @@
-import {Text, View } from 'react-native'
-import React from 'react'
+import { Text, View, Button } from "react-native";
+import React from "react";
+import { StatusBar } from "expo-status-bar";
+import { useColorScheme } from "nativewind";
+import { router } from "expo-router";
+import { useTranslation } from "react-i18next";
 
-const index = () => {
+const Index = () => {
+  const { colorScheme } = useColorScheme();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+  };
+
   return (
-    <View className="flex-1 items-center p-6">
-      <View className="flex-1 justify-center max-w-[960px] mx-auto">
-        <Text className="text-4xl font-bold">Hello World</Text>
-        <Text className="text-2xl text-[#38434D]">
-          This is the first page of your app.
+    <>
+      <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
+      <View className="flex-1 justify-center items-center bg-white dark:bg-slate-800">
+        <Text className="text-2xl text-center font-bold dark:text-white">
+          {t("welcome")}
         </Text>
-      </View>
-    </View>
-  )
-}
 
-export default index
+        <View className="mt-4">
+          <Button
+            title={t("switchToKorean")}
+            onPress={() => changeLanguage("ko")}
+            disabled={i18n.language === "ko"}
+          />
+          <Button
+            title={t("switchToEnglish")}
+            onPress={() => changeLanguage("en")}
+            disabled={i18n.language === "en"}
+          />
+        </View>
+
+        <View className="mt-4">
+          <Button
+            title={t("login")}
+            onPress={() => router.navigate("/login")}
+          />
+        </View>
+      </View>
+    </>
+  );
+};
+
+export default Index;
