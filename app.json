@@ -9,7 +9,7 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#FCD500"
     },
@@ -23,8 +23,15 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FCD500"
-      }
+      },
+      "package": "com.zybryx.Lilo"
     },
-    "plugins": ["expo-font", "expo-asset", "expo-secure-store"]
+    "plugins": [
+      "expo-font",
+      "expo-asset",
+      "expo-secure-store",
+      "expo-splash-screen",
+      "expo-router"
+    ]
   }
 }
