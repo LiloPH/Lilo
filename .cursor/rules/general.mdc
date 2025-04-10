@@ -1,0 +1,56 @@
+---
+description: Expo + Tailwind project best practices for liloph-lilo
+globs:
+  - liloph-lilo/**
+alwaysApply: false
+---
+
+// React Native Expo + Tailwind Best Practices for liloph-lilo
+
+const expoTailwindBestPractices = [
+  "Use functional components with hooks (e.g., useEffect, useState)",
+  "Leverage Expo Router for screen navigation and layout nesting",
+  "Use Tailwind CSS with NativeWind for consistent styling",
+  "Store and load custom fonts via Expo's font loader",
+  "Organize screens inside the 'app/' directory with nested routes",
+  "Store API and Axios configs in a separate 'api/' folder",
+  "Use a global store (e.g., Zustand in store/) for managing app-wide states",
+  "Use proper error boundaries and fallback UI for failed requests",
+  "Implement lazy loading for heavy components or screens",
+];
+
+// Folder Structure (based on liloph-lilo)
+
+const folderStructure = `
+api/
+app/
+  auth/
+  place/
+assets/
+  font/
+components/
+  common/
+  stack/
+constants/
+store/
+global.css
+tailwind.config.js
+app.json
+App.tsx
+`;
+
+// Additional Development Guidelines
+
+const additionalGuidelines = `
+1. Use TypeScript strictly (enable strict mode in tsconfig.json)
+2. Use dynamic routing (e.g., [placeId].tsx) for parameterized screens
+3. Implement centralized theme and language config in constants/
+4. Secure sensitive data using expo-secure-store
+5. Avoid hardcoding text—support i18n using language store
+6. Keep API logic modular (split auth.ts, axios.ts)
+7. Clean up unused assets/fonts to optimize bundle size
+8. Use custom hooks to abstract logic (suggest adding a hooks/ folder)
+9. Leverage OTA updates via Expo for fast delivery
+10. Keep components reusable and stateless where possible
+`;
+
